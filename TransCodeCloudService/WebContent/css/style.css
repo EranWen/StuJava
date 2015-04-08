@@ -35,7 +35,7 @@ body {
   text-align: center;
 }
 .login-form-wrap:before {
-  background: /images/0vLxyVB.png;
+  background: url("../images/0vLxyVB.png") ;
   display: block;
   content: '';
   width: 58px;
