@@ -1,15 +1,23 @@
 package com.erabay.daoImpl;
 
+import org.hibernate.FlushMode;
 import org.hibernate.HibernateException;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.erabay.dao.BaseDao;
 
 public class UserDao extends HibernateDaoSupport implements BaseDao {
+	
+	Session session = null;
 
-	@Override
 	public void saveObject(Object obj) throws HibernateException {
-		getHibernateTemplate().save(obj);
+		
+		session = getSessionFactory().getCurrentSession();
+        session = getSessionFactory().openSession();
+        session.setFlushMode(FlushMode.MANUAL);
+        session.save(obj);
+
 	}
 
 }

@@ -16,7 +16,6 @@ public class UserManagerImpl implements UserManager {
 		this.dao = dao;
 	}
 
-	@Override
 	public void regUser(UserForm userForm) throws HibernateException {
 		User user = new User();
 		BeanUtils.copyProperties(userForm, user);
